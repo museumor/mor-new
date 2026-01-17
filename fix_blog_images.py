@@ -4,6 +4,7 @@ import os
 import re
 import requests
 import time
+from urllib.parse import unquote
 
 # Paths
 blog_csv = 'old-source/Blog.csv'
@@ -35,15 +36,34 @@ def format_date(date_str):
     except:
         return date_str
 
+def sanitize_filename(filename):
+    # Decode percent-encoded characters
+    filename = unquote(filename)
+    
+    # Remove hash prefix (Webflow ID followed by underscore)
+    # Pattern: 24 hex chars + underscore, or just alphanumeric + underscore
+    filename = re.sub(r'^[a-fA-F0-9]{24}_', '', filename)
+    
+    # Split extension
+    base, ext = os.path.splitext(filename)
+    
+    # Replace spaces and %20 with hyphens
+    base = base.replace(' ', '-').replace('%20', '-')
+    
+    # Remove special characters (keep alphanumeric, hyphens, underscores)
+    base = re.sub(r'[^a-zA-Z0-9\-_]', '', base)
+    
+    # Collapse multiple hyphens
+    base = re.sub(r'-+', '-', base).strip('-')
+    
+    # Reassemble and lower case
+    return f"{base}{ext}".lower()
+
 def download_image(url):
     if not url: return None
     
-    filename = url.split('/')[-1]
-    # Clean filename of query params if any
-    filename = filename.split('?')[0]
-    # Decode percent-encoded characters
-    from urllib.parse import unquote
-    filename = unquote(filename)
+    original_filename = url.split('/')[-1].split('?')[0]
+    filename = sanitize_filename(original_filename)
     
     local_path = os.path.join(public_img_dir, filename)
     web_path = f"{local_img_base_path}/{filename}"
@@ -51,7 +71,7 @@ def download_image(url):
     if os.path.exists(local_path):
         return web_path
         
-    print(f"Downloading {url} to {local_path}...")
+    print(f"Downloading {url} -> {filename}...")
     try:
         headers = {
             'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
@@ -91,27 +111,30 @@ def process_blog_content():
             body = row.get('Post Body', '')
             
             # Find and replace images in body
-            # Regex to find src="..." inside <img ...> tags or just src urls
-            # We look for webflow URLs specifically
             
             def replace_match(match):
                 url = match.group(1)
-                if 'webflow.com' in url:
+                # Check if it's a webflow image
+                if 'webflow.com' in url or 'uploads-ssl.webflow.com' in url:
                     local_url = download_image(url)
                     if local_url:
-                        return f'src="{local_url}"'
-                return match.group(0) # Return original if not webflow or download failed
+                        # We need to make sure we don't double-prefix if the component does it.
+                        # But for HTML content injected via dangerouslySetInnerHTML, SafeImage isn't used!
+                        # We must include the base path manually here if we are deploying to a subdirectory.
+                        # BASE_PATH is /mor-new
+                        return f'src="/mor-new{local_url}"'
+                return match.group(0)
 
             # Regex for src="URL"
-            body = re.sub(r'src="([^\"]+)"', replace_match, body)
+            # Note: Webflow often puts images in <img src="..."> or sometimes background-image.
+            # We target src attribute.
+            body = re.sub(r'src="([^"]+)"', replace_match, body)
             
             # Also clean up museumor.com links
-            body = re.sub(r'https?://(www\.)?museumor\.com/', '/', body)
+            body = re.sub(r'https?://(www\.)?museumor\.com/', '/mor-new/', body)
             
-            # Get main image path (already processed in previous steps, just need the path string)
-            # We assume standard naming convention from previous step: /images/blog/slug.jpg
-            # Or we can re-read it from CSV but we want to stick to the convention
-            main_image = f"/images/blog/{slug}.jpg" 
+            # Get main image path
+            main_image = f"/mor-new/images/blog/{slug}.jpg" 
             
             blog_content_map[slug] = {
                 'title': title,
@@ -136,7 +159,8 @@ def process_blog_content():
             f.write(f'    content: `{content_escaped}`\n')
             f.write('  },\n')
             
-        f.write('};\n')
+        f.write('};
+')
 
 if __name__ == "__main__":
     process_blog_content()
