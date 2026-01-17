@@ -1,0 +1,142 @@
+import csv
+import json
+import os
+import re
+import requests
+import time
+
+# Paths
+blog_csv = 'old-source/Blog.csv'
+blog_content_ts_path = 'src/data/blog_content.ts'
+public_img_dir = 'public/images/blog/content'
+local_img_base_path = '/images/blog/content'
+
+# Ensure directory exists
+os.makedirs(public_img_dir, exist_ok=True)
+
+def clean_text(text):
+    if not text: return ''
+    text = text.replace('\\', '\\\\').replace('"', '\"').replace('\n', ' ').strip()
+    return text
+
+def get_slug(text):
+    if not text: return 'unknown'
+    slug = text.lower().strip()
+    slug = re.sub(r'[^\w\s-]', '', slug)
+    slug = re.sub(r'[\s_-]+', '-', slug)
+    return slug
+
+def format_date(date_str):
+    try:
+        parts = date_str.split(' ')
+        if len(parts) >= 4:
+            return f'{parts[1]} {parts[2]}, {parts[3]}'
+        return date_str
+    except:
+        return date_str
+
+def download_image(url):
+    if not url: return None
+    
+    filename = url.split('/')[-1]
+    # Clean filename of query params if any
+    filename = filename.split('?')[0]
+    # Decode percent-encoded characters
+    from urllib.parse import unquote
+    filename = unquote(filename)
+    
+    local_path = os.path.join(public_img_dir, filename)
+    web_path = f"{local_img_base_path}/{filename}"
+    
+    if os.path.exists(local_path):
+        return web_path
+        
+    print(f"Downloading {url} to {local_path}...")
+    try:
+        headers = {
+            'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36'
+        }
+        response = requests.get(url, headers=headers, stream=True, timeout=10)
+        if response.status_code == 200:
+            with open(local_path, 'wb') as f:
+                for chunk in response.iter_content(1024):
+                    f.write(chunk)
+            time.sleep(0.1) # Polite delay
+            return web_path
+        else:
+            print(f"Failed to download {url}: Status {response.status_code}")
+    except Exception as e:
+        print(f"Error downloading {url}: {e}")
+    
+    return None
+
+def process_blog_content():
+    if not os.path.exists(blog_csv):
+        print("Blog CSV not found")
+        return
+
+    blog_content_map = {}
+    
+    with open(blog_csv, 'r', encoding='utf-8') as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            title = row.get('Name', '').strip()
+            if not title: continue
+            
+            slug = row.get('Slug') or get_slug(title)
+            date_str = row.get('Published Date') or row.get('Created On', '')
+            formatted_date = format_date(date_str)
+            
+            # Extract content
+            body = row.get('Post Body', '')
+            
+            # Find and replace images in body
+            # Regex to find src="..." inside <img ...> tags or just src urls
+            # We look for webflow URLs specifically
+            
+            def replace_match(match):
+                url = match.group(1)
+                if 'webflow.com' in url:
+                    local_url = download_image(url)
+                    if local_url:
+                        return f'src="{local_url}"'
+                return match.group(0) # Return original if not webflow or download failed
+
+            # Regex for src="URL"
+            body = re.sub(r'src="([^\"]+)"', replace_match, body)
+            
+            # Also clean up museumor.com links
+            body = re.sub(r'https?://(www\.)?museumor\.com/', '/', body)
+            
+            # Get main image path (already processed in previous steps, just need the path string)
+            # We assume standard naming convention from previous step: /images/blog/slug.jpg
+            # Or we can re-read it from CSV but we want to stick to the convention
+            main_image = f"/images/blog/{slug}.jpg" 
+            
+            blog_content_map[slug] = {
+                'title': title,
+                'date': formatted_date,
+                'content': body,
+                'image': main_image
+            }
+
+    # Write to TS file
+    with open(blog_content_ts_path, 'w', encoding='utf-8') as f:
+        f.write('export interface BlogPostContent { title: string; date: string; content: string; image: string; }\n\n')
+        f.write('export const blogContent: Record<string, BlogPostContent> = {\n')
+        
+        for slug, data in blog_content_map.items():
+            # Escape backticks and ${} for template literals
+            content_escaped = data['content'].replace('`', '\`').replace('${', '\${')
+            
+            f.write(f'  "{slug}": {{\n')
+            f.write(f'    title: "{clean_text(data["title"])}",\n')
+            f.write(f'    date: "{clean_text(data["date"])}",\n')
+            f.write(f'    image: "{clean_text(data["image"])}",\n')
+            f.write(f'    content: `{content_escaped}`\n')
+            f.write('  },\n')
+            
+        f.write('};\n')
+
+if __name__ == "__main__":
+    process_blog_content()
