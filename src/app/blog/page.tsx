@@ -1,4 +1,5 @@
 import { blogPosts } from "@/data/blog";
+import Link from "next/link";
 
 export default function BlogPage() {
   return (
@@ -10,27 +11,27 @@ export default function BlogPage() {
           {blogPosts.map((post, index) => (
             <article key={index} className="border-b border-white/10 pb-16 last:border-0">
               {/* Blog Image */}
-              <div className="w-full aspect-video bg-zinc-900 rounded-lg overflow-hidden mb-8 border border-white/5">
+              <Link href={post.link} className="block w-full aspect-video bg-zinc-900 rounded-lg overflow-hidden mb-8 border border-white/5 hover:border-purple-500/30 transition-all">
                 <img 
                   src={post.image} 
                   alt={post.title}
                   className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
                   onError={(e) => {
-                     (e.target as HTMLImageElement).style.display = 'none'; // Hide if broken for now, or use placeholder
+                     (e.target as HTMLImageElement).style.display = 'none';
                   }}
                 />
-              </div>
+              </Link>
 
               <span className="text-sm font-bold text-purple-500 uppercase tracking-widest block mb-3">{post.date}</span>
-              <h2 className="text-3xl font-bold text-white mb-4 hover:text-purple-400 cursor-pointer transition-colors">
-                <a href={post.link}>{post.title}</a>
+              <h2 className="text-3xl font-bold text-white mb-4 hover:text-purple-400 transition-colors">
+                <Link href={post.link}>{post.title}</Link>
               </h2>
               <p className="text-lg text-gray-400 leading-relaxed mb-6">
                 {post.snippet}
               </p>
-              <a href={post.link} className="text-sm font-bold text-white border-b border-white hover:text-purple-400 hover:border-purple-400 transition-colors pb-1">
+              <Link href={post.link} className="text-sm font-bold text-white border-b border-white hover:text-purple-400 hover:border-purple-400 transition-colors pb-1">
                 Read More
-              </a>
+              </Link>
             </article>
           ))}
         </div>
