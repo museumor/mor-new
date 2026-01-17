@@ -8,6 +8,17 @@ interface SafeImageProps extends React.ImgHTMLAttributes<HTMLImageElement> {
 
 export default function SafeImage({ src, fallbackSrc, className, ...props }: SafeImageProps) {
   const [hasError, setHasError] = useState(false);
+  
+  // Prefix with base path if it's a local absolute path (starts with /) and not an external URL
+  const basePath = process.env.NEXT_PUBLIC_BASE_PATH || '';
+  let finalSrc = src;
+
+  if (src && typeof src === 'string' && src.startsWith('/') && !src.startsWith('http')) {
+      // Avoid double prefixing if it somehow already has it (though unlikely with current data)
+      if (basePath && !src.startsWith(basePath)) {
+          finalSrc = `${basePath}${src}`;
+      }
+  }
 
   if (hasError) {
     if (fallbackSrc) {
@@ -26,7 +37,7 @@ export default function SafeImage({ src, fallbackSrc, className, ...props }: Saf
 
   return (
     <img
-      src={src}
+      src={finalSrc}
       className={className}
       {...props}
       onError={() => setHasError(true)}
