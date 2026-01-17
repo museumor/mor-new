@@ -11,14 +11,14 @@ export default function Header() {
         <nav className="hidden md:flex gap-8 text-sm font-medium tracking-wide">
           <Link href="/about" className="hover:text-purple-400 transition-colors">ABOUT</Link>
           <Link href="/host-an-event" className="hover:text-purple-400 transition-colors">HOST AN EVENT</Link>
-          <Link href="#" className="hover:text-purple-400 transition-colors">BLOG</Link>
+          <Link href="/blog" className="hover:text-purple-400 transition-colors">BLOG</Link>
           <Link href="/artists" className="hover:text-purple-400 transition-colors">ARTISTS</Link>
-          <Link href="#" className="hover:text-purple-400 transition-colors">COLLECTION</Link>
+          <Link href="/collection" className="hover:text-purple-400 transition-colors">COLLECTION</Link>
         </nav>
 
-        <button className="px-6 py-2.5 text-xs font-bold bg-white text-black hover:bg-purple-500 hover:text-white transition-colors rounded-full uppercase tracking-widest">
+        <Link href="/download" className="px-6 py-2.5 text-xs font-bold bg-white text-black hover:bg-purple-500 hover:text-white transition-colors rounded-full uppercase tracking-widest">
           Download
-        </button>
+        </Link>
       </div>
     </header>
   );

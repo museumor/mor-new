@@ -1,0 +1,56 @@
+export interface ArtWork {
+  title: string;
+  artist: string;
+  year: string;
+  category?: string;
+}
+
+export const collection: ArtWork[] = [
+  { title: "Gossamer", artist: "Andy Baker", year: "2020", category: "Math Art" },
+  { title: "The Hug of Hong Hengcharoensuk", artist: "Sufee Yama", year: "2020" },
+  { title: "Quantum Tesseract", artist: "Kris Pilcher", year: "2020" },
+  { title: "Rest in Power", artist: "Estella Tse", year: "2020" },
+  { title: "Friend Generator", artist: "Friend Generator", year: "2020" },
+  { title: "EDEN", artist: "Ivano Salonia", year: "2020" },
+  { title: "Immateria", artist: "Isaac Cohen", year: "2020" },
+  { title: "Devalaya Rupanam", artist: "Kevin Mack", year: "2020" },
+  { title: "Deep Connection", artist: "Marilene Oliver", year: "2019" },
+  { title: "How Was Your Day?", artist: "Edward Madojemu", year: "2019" },
+  { title: "Black And White Daydream", artist: "Anna Zhilyaeva", year: "2019" },
+  { title: "Terrarium", artist: "Durk van der Meer", year: "2019" },
+  { title: "Ring", artist: "Rosie Summers", year: "2019" },
+  { title: "Infinite Fidget", artist: "John Orion Young", year: "2019" },
+  { title: "Space", artist: "Dani Bittman", year: "2019" },
+  { title: "Looking Glass", artist: "Michelle Brown", year: "2019" },
+  { title: "Lignes de Fleurs", artist: "Sabby Lighf", year: "2019" },
+  { title: "Gerald McWonky", artist: "Mez Breeze", year: "2018" },
+  { title: "Fishbowl", artist: "Lachlan Sleight", year: "2018" },
+  { title: "Prehistoric", artist: "Nick Ladd", year: "2018" },
+  { title: "World One", artist: "Scobot", year: "2018" },
+  { title: "Infinity", artist: "Sutu", year: "2018" },
+  { title: "Alive", artist: "Sutu", year: "2018" },
+  { title: "Glass Cities", artist: "Michelle Brown", year: "2018" },
+  { title: "Hyper-Thread Dress", artist: "Ana Duncan", year: "2018" },
+  { title: "Dogma Duality Desire", artist: "John Orion Young", year: "2018" },
+  { title: "Crystal Odyssey", artist: "Sutu", year: "2018" },
+  { title: "Electric Ocean", artist: "Romain Revert", year: "2018" },
+  { title: "See These Ice Creams", artist: "John Orion Young", year: "2018" },
+  { title: "Neo-Hanuka", artist: "Micah404", year: "2018" },
+  { title: "Complex Chaos", artist: "Sean Tann", year: "2018" },
+  { title: "Alex's Sci-Fi World", artist: "Matt Schaefer", year: "2018" },
+  { title: "Prey", artist: "Nick Ladd", year: "2018" },
+  { title: "Solve et Coagula", artist: "Cesar Ortega", year: "2018" },
+  { title: "Chroma Wave", artist: "Sean Tann", year: "2017" },
+  { title: "Spaceship Triangle", artist: "Liz Edwards", year: "2017" },
+  { title: "Bamboo Forest", artist: "Vladimir Ilic", year: "2017" },
+  { title: "Teleportation", artist: "Mike Murdock", year: "2017" },
+  { title: "Ghouls", artist: "Liz Edwards", year: "2017" },
+  { title: "Baddies", artist: "Liz Edwards", year: "2017" },
+  { title: "Night Snow", artist: "Dani Bittman", year: "2017" },
+  { title: "Melting Crayons", artist: "Dani Bittman", year: "2017" },
+  { title: "Corner Vision", artist: "Dani Bittman", year: "2017" },
+  { title: "Lunch", artist: "Naam", year: "2017" },
+  { title: "Capsule", artist: "Em Halberstadt", year: "2017" },
+  { title: "Blort", artist: "Kevin Mack", year: "2017" },
+  { title: "Lagrange Point", artist: "Liz Edwards", year: "2016" }
+];
