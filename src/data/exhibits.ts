@@ -3,57 +3,73 @@ export interface Exhibit {
   title: string;
   artist: string;
   description: string;
-  imageUrl: string; // We'll use placeholders for now
-  color: string; // Placeholder background color
+  imageUrl: string; 
+  color: string;
 }
 
 export const exhibits: Exhibit[] = [
   {
     id: "1",
-    title: "The Great C",
-    artist: "Luke Van Osch",
-    description: "A cinematic narrative set in a post-apocalyptic world.",
+    title: "Immersive Sculpture",
+    artist: "Dani Bittman",
+    description: "VR artist and tool developer known for Tilt Brush and blocks work.",
     imageUrl: "/placeholders/1.jpg", 
-    color: "bg-blue-900",
+    color: "bg-fuchsia-900",
   },
   {
     id: "2",
-    title: "Apex",
-    artist: "Arjan van Meerten",
-    description: "An intense, surreal musical experience.",
+    title: "Animated Worlds",
+    artist: "Nick Ladd",
+    description: "3D animator and Quill artist creating vibrant, living scenes.",
     imageUrl: "/placeholders/2.jpg",
-    color: "bg-purple-900",
+    color: "bg-blue-900",
   },
   {
     id: "3",
-    title: "Museum of Symmetry",
-    artist: "Paloma Dawkins",
-    description: "An interactive VR animation.",
+    title: "Surreal Narratives",
+    artist: "Ana Duncan",
+    description: "Illustrator and VR artist crafting stylized, colorful environments.",
     imageUrl: "/placeholders/3.jpg",
-    color: "bg-pink-800",
+    color: "bg-purple-900",
   },
   {
     id: "4",
-    title: "Through the Masks",
-    artist: "Multiple Artists",
-    description: "A collaborative journey through identity.",
+    title: "Future Stories",
+    artist: "Sutu",
+    description: "Digital artist exploring the intersection of art and technology.",
     imageUrl: "/placeholders/4.jpg",
-    color: "bg-teal-900",
-  },
-  {
-    id: "5",
-    title: "Immersive Arcade",
-    artist: "Curated Collection",
-    description: "The best of British immersive storytelling.",
-    imageUrl: "/placeholders/5.jpg",
     color: "bg-indigo-900",
   },
   {
+    id: "5",
+    title: "Abstract Forms",
+    artist: "Naam",
+    description: "VR sculptor creating intricate, organic structures.",
+    imageUrl: "/placeholders/5.jpg",
+    color: "bg-violet-900",
+  },
+  {
     id: "6",
-    title: "Fantastic Fungi",
-    artist: "Visual Studio",
-    description: "Explore the underground network of mushrooms.",
+    title: "Character Design",
+    artist: "Liz Edwards",
+    description: "3D character artist and VR sculptor.",
     imageUrl: "/placeholders/6.jpg",
-    color: "bg-emerald-900",
+    color: "bg-pink-900",
+  },
+  {
+    id: "7",
+    title: "Procedural beauty",
+    artist: "Kevin Mack",
+    description: "Pioneer of abstract, procedural VR experiences.",
+    imageUrl: "/placeholders/7.jpg",
+    color: "bg-cyan-900",
+  },
+  {
+    id: "8",
+    title: "Cosmic Visions",
+    artist: "Isaac Cohen",
+    description: "Experience designer focused on emotional connection in VR.",
+    imageUrl: "/placeholders/8.jpg",
+    color: "bg-teal-900",
   }
 ];
