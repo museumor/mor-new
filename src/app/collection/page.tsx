@@ -16,15 +16,23 @@ export default function CollectionPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {collection.map((work, index) => (
             <div key={index} className="bg-zinc-900 border border-white/5 p-6 rounded-lg hover:bg-zinc-800 hover:border-purple-500/30 transition-all group">
-              <div className="aspect-square bg-gradient-to-br from-gray-800 to-black mb-4 rounded overflow-hidden relative">
-                 {/* Placeholder for Art Thumbnail */}
-                 <div className="absolute inset-0 flex items-center justify-center opacity-20 text-9xl font-black text-white group-hover:scale-110 transition-transform">
-                   {work.title.charAt(0)}
+              <div className="aspect-square bg-gradient-to-br from-gray-800 to-black mb-4 rounded overflow-hidden relative group-hover:scale-[1.02] transition-transform duration-500">
+                 <img 
+                   src={work.image} 
+                   alt={work.title}
+                   className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
+                   onError={(e) => {
+                     (e.target as HTMLImageElement).style.display = 'none';
+                   }}
+                 />
+                 {/* Fallback Initials (only visible if img fails/hides) */}
+                 <div className="absolute inset-0 flex items-center justify-center -z-10">
+                    <span className="text-9xl font-black text-white/5">{work.title.charAt(0)}</span>
                  </div>
               </div>
               <h3 className="text-lg font-bold text-white truncate group-hover:text-purple-400 transition-colors">{work.title}</h3>
               <div className="flex justify-between items-center mt-2 text-sm text-gray-500">
-                <span>{work.artist}</span>
+                <span className="truncate mr-2">{work.artist}</span>
                 <span>{work.year}</span>
               </div>
             </div>

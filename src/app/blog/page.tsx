@@ -6,9 +6,21 @@ export default function BlogPage() {
       <div className="container mx-auto px-6 py-24 max-w-3xl">
         <h1 className="text-5xl md:text-7xl font-bold mb-16 text-white text-center">BLOG</h1>
         
-        <div className="space-y-12">
+        <div className="space-y-16">
           {blogPosts.map((post, index) => (
-            <article key={index} className="border-b border-white/10 pb-12 last:border-0">
+            <article key={index} className="border-b border-white/10 pb-16 last:border-0">
+              {/* Blog Image */}
+              <div className="w-full aspect-video bg-zinc-900 rounded-lg overflow-hidden mb-8 border border-white/5">
+                <img 
+                  src={post.image} 
+                  alt={post.title}
+                  className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
+                  onError={(e) => {
+                     (e.target as HTMLImageElement).style.display = 'none'; // Hide if broken for now, or use placeholder
+                  }}
+                />
+              </div>
+
               <span className="text-sm font-bold text-purple-500 uppercase tracking-widest block mb-3">{post.date}</span>
               <h2 className="text-3xl font-bold text-white mb-4 hover:text-purple-400 cursor-pointer transition-colors">
                 <a href={post.link}>{post.title}</a>

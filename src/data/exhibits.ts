@@ -13,7 +13,7 @@ export const exhibits: Exhibit[] = [
     title: "Immersive Sculpture",
     artist: "Dani Bittman",
     description: "VR artist and tool developer known for Tilt Brush and blocks work.",
-    imageUrl: "/placeholders/1.jpg", 
+    imageUrl: "/images/home/dani-bittman-immersive-sculpture.jpg", 
     color: "bg-fuchsia-900",
   },
   {
@@ -21,7 +21,7 @@ export const exhibits: Exhibit[] = [
     title: "Animated Worlds",
     artist: "Nick Ladd",
     description: "3D animator and Quill artist creating vibrant, living scenes.",
-    imageUrl: "/placeholders/2.jpg",
+    imageUrl: "/images/home/nick-ladd-animated-worlds.jpg",
     color: "bg-blue-900",
   },
   {
@@ -29,7 +29,7 @@ export const exhibits: Exhibit[] = [
     title: "Surreal Narratives",
     artist: "Ana Duncan",
     description: "Illustrator and VR artist crafting stylized, colorful environments.",
-    imageUrl: "/placeholders/3.jpg",
+    imageUrl: "/images/home/ana-duncan-surreal-narratives.jpg",
     color: "bg-purple-900",
   },
   {
@@ -37,7 +37,7 @@ export const exhibits: Exhibit[] = [
     title: "Future Stories",
     artist: "Sutu",
     description: "Digital artist exploring the intersection of art and technology.",
-    imageUrl: "/placeholders/4.jpg",
+    imageUrl: "/images/home/sutu-future-stories.jpg",
     color: "bg-indigo-900",
   },
   {
@@ -45,7 +45,7 @@ export const exhibits: Exhibit[] = [
     title: "Abstract Forms",
     artist: "Naam",
     description: "VR sculptor creating intricate, organic structures.",
-    imageUrl: "/placeholders/5.jpg",
+    imageUrl: "/images/home/naam-abstract-forms.jpg",
     color: "bg-violet-900",
   },
   {
@@ -53,7 +53,7 @@ export const exhibits: Exhibit[] = [
     title: "Character Design",
     artist: "Liz Edwards",
     description: "3D character artist and VR sculptor.",
-    imageUrl: "/placeholders/6.jpg",
+    imageUrl: "/images/home/liz-edwards-character-design.jpg",
     color: "bg-pink-900",
   },
   {
@@ -61,7 +61,7 @@ export const exhibits: Exhibit[] = [
     title: "Procedural beauty",
     artist: "Kevin Mack",
     description: "Pioneer of abstract, procedural VR experiences.",
-    imageUrl: "/placeholders/7.jpg",
+    imageUrl: "/images/home/kevin-mack-procedural-beauty.jpg",
     color: "bg-cyan-900",
   },
   {
@@ -69,7 +69,7 @@ export const exhibits: Exhibit[] = [
     title: "Cosmic Visions",
     artist: "Isaac Cohen",
     description: "Experience designer focused on emotional connection in VR.",
-    imageUrl: "/placeholders/8.jpg",
+    imageUrl: "/images/home/isaac-cohen-cosmic-visions.jpg",
     color: "bg-teal-900",
   }
 ];

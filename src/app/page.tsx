@@ -51,8 +51,17 @@ export default function Home() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {exhibits.map((exhibit) => (
             <div key={exhibit.id} className="group relative aspect-[3/4] overflow-hidden rounded-sm bg-gray-900 cursor-pointer">
-              {/* Abstract Placeholder Art */}
-              <div className={`absolute inset-0 ${exhibit.color} opacity-80 transition-transform duration-700 group-hover:scale-110`}></div>
+              {/* Image with Color Fallback */}
+              <div className={`absolute inset-0 ${exhibit.color} transition-transform duration-700 group-hover:scale-110`}>
+                <img 
+                  src={exhibit.imageUrl} 
+                  alt={exhibit.title}
+                  className="w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500"
+                  onError={(e) => {
+                    (e.target as HTMLImageElement).style.display = 'none';
+                  }}
+                />
+              </div>
               
               {/* Overlay Gradient */}
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>

@@ -1,16 +1,6 @@
-export default function AboutPage() {
-  const team = [
-    { name: "Colin Northway", role: "Founder" },
-    { name: "Robin Stethem", role: "Founder/CEO" },
-    { name: "Stephen Gray", role: "Software Engineer" },
-    { name: "Lindsay Jorgensen", role: "Technical Artist" },
-    { name: "Adam Madojemu", role: "Brand Manager" },
-    { name: "Adiba Muzaffar", role: "Content Strategist" },
-    { name: "Em Halberstadt", role: "Sound Designer" },
-    { name: "Nicholas Zhang", role: "Audio Programmer" },
-    { name: "Maris Tammik", role: "Audio Programmer" },
-  ];
+import { team } from "@/data/team";
 
+export default function AboutPage() {
   return (
     <div className="w-full bg-zinc-950 min-h-screen text-gray-200">
       <div className="container mx-auto px-6 py-24 max-w-4xl">
@@ -30,11 +20,23 @@ export default function AboutPage() {
 
         <section>
           <h2 className="text-3xl font-bold mb-8 text-white border-b border-white/10 pb-4">The Team</h2>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-12">
             {team.map((member) => (
-              <div key={member.name} className="flex justify-between items-baseline border-b border-white/5 pb-2">
-                <span className="text-lg font-bold text-white">{member.name}</span>
-                <span className="text-purple-400 text-sm uppercase tracking-wider">{member.role}</span>
+              <div key={member.name} className="flex flex-col gap-4">
+                <div className="w-full aspect-[4/3] bg-zinc-900 rounded overflow-hidden">
+                  <img 
+                    src={member.image} 
+                    alt={member.name}
+                    className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
+                    onError={(e) => {
+                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`;
+                    }}
+                  />
+                </div>
+                <div className="flex justify-between items-baseline border-b border-white/5 pb-2">
+                  <span className="text-lg font-bold text-white">{member.name}</span>
+                  <span className="text-purple-400 text-sm uppercase tracking-wider">{member.role}</span>
+                </div>
               </div>
             ))}
           </div>
