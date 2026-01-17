@@ -1,4 +1,5 @@
 import { collection } from "@/data/collection";
+import SafeImage from "@/components/SafeImage";
 
 export default function CollectionPage() {
   return (
@@ -17,13 +18,10 @@ export default function CollectionPage() {
           {collection.map((work, index) => (
             <div key={index} className="bg-zinc-900 border border-white/5 p-6 rounded-lg hover:bg-zinc-800 hover:border-purple-500/30 transition-all group">
               <div className="aspect-square bg-gradient-to-br from-gray-800 to-black mb-4 rounded overflow-hidden relative group-hover:scale-[1.02] transition-transform duration-500">
-                 <img 
+                 <SafeImage 
                    src={work.image} 
                    alt={work.title}
                    className="w-full h-full object-cover opacity-80 group-hover:opacity-100 transition-opacity"
-                   onError={(e) => {
-                     (e.target as HTMLImageElement).style.display = 'none';
-                   }}
                  />
                  {/* Fallback Initials (only visible if img fails/hides) */}
                  <div className="absolute inset-0 flex items-center justify-center -z-10">

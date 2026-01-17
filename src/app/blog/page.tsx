@@ -1,5 +1,6 @@
 import { blogPosts } from "@/data/blog";
 import Link from "next/link";
+import SafeImage from "@/components/SafeImage";
 
 export default function BlogPage() {
   return (
@@ -12,13 +13,10 @@ export default function BlogPage() {
             <article key={index} className="border-b border-white/10 pb-16 last:border-0">
               {/* Blog Image */}
               <Link href={post.link} className="block w-full aspect-video bg-zinc-900 rounded-lg overflow-hidden mb-8 border border-white/5 hover:border-purple-500/30 transition-all">
-                <img 
+                <SafeImage 
                   src={post.image} 
                   alt={post.title}
                   className="w-full h-full object-cover opacity-90 hover:opacity-100 transition-opacity"
-                  onError={(e) => {
-                     (e.target as HTMLImageElement).style.display = 'none';
-                  }}
                 />
               </Link>
 

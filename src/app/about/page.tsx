@@ -1,4 +1,5 @@
 import { team } from "@/data/team";
+import SafeImage from "@/components/SafeImage";
 
 export default function AboutPage() {
   return (
@@ -24,13 +25,11 @@ export default function AboutPage() {
             {team.map((member) => (
               <div key={member.name} className="flex flex-col gap-4">
                 <div className="w-full aspect-[4/3] bg-zinc-900 rounded overflow-hidden">
-                  <img 
+                  <SafeImage 
                     src={member.image} 
                     alt={member.name}
                     className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity"
-                    onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`;
-                    }}
+                    fallbackSrc={`https://ui-avatars.com/api/?name=${encodeURIComponent(member.name)}&background=random`}
                   />
                 </div>
                 <div className="flex justify-between items-baseline border-b border-white/5 pb-2">

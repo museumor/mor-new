@@ -1,6 +1,7 @@
 import { blogContent } from "@/data/blog_content";
 import { notFound } from "next/navigation";
 import Link from "next/link";
+import SafeImage from "@/components/SafeImage";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -26,13 +27,10 @@ export default async function BlogPostPage({ params }: PageProps) {
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-8">{post.title}</h1>
           
           <div className="w-full aspect-video bg-zinc-900 rounded-xl overflow-hidden border border-white/5">
-            <img 
+            <SafeImage 
               src={post.image} 
               alt={post.title}
               className="w-full h-full object-cover opacity-90"
-              onError={(e) => {
-                (e.target as HTMLImageElement).style.display = 'none';
-              }}
             />
           </div>
         </header>

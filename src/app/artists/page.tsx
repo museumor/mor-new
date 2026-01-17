@@ -1,4 +1,5 @@
 import { artists } from "@/data/artists";
+import SafeImage from "@/components/SafeImage";
 
 export default function ArtistsPage() {
   return (
@@ -13,13 +14,11 @@ export default function ArtistsPage() {
           {artists.map((artist) => (
             <div key={artist.name} className="bg-zinc-900/50 p-8 rounded-xl border border-white/5 hover:border-purple-500/50 transition-colors group flex flex-col items-center text-center">
               <div className="w-32 h-32 rounded-full overflow-hidden mb-6 bg-zinc-800 border-2 border-white/10 group-hover:border-purple-500 transition-colors">
-                <img 
+                <SafeImage 
                   src={artist.image} 
                   alt={artist.name}
                   className="w-full h-full object-cover"
-                  onError={(e) => {
-                      (e.target as HTMLImageElement).src = `https://ui-avatars.com/api/?name=${encodeURIComponent(artist.name)}&background=random`;
-                  }}
+                  fallbackSrc={`https://ui-avatars.com/api/?name=${encodeURIComponent(artist.name)}&background=random`}
                 />
               </div>
               <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-purple-400 transition-colors">{artist.name}</h3>

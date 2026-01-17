@@ -1,4 +1,5 @@
 import { exhibits } from "@/data/exhibits";
+import SafeImage from "@/components/SafeImage";
 
 export default function Home() {
   return (
@@ -53,13 +54,10 @@ export default function Home() {
             <div key={exhibit.id} className="group relative aspect-[3/4] overflow-hidden rounded-sm bg-gray-900 cursor-pointer">
               {/* Image with Color Fallback */}
               <div className={`absolute inset-0 ${exhibit.color} transition-transform duration-700 group-hover:scale-110`}>
-                <img 
+                <SafeImage 
                   src={exhibit.imageUrl} 
                   alt={exhibit.title}
                   className="w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500"
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).style.display = 'none';
-                  }}
                 />
               </div>
               
