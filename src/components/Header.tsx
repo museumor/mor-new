@@ -9,10 +9,10 @@ export default function Header() {
         </Link>
         
         <nav className="hidden md:flex gap-8 text-sm font-medium tracking-wide">
-          <Link href="#" className="hover:text-purple-400 transition-colors">ABOUT</Link>
-          <Link href="#" className="hover:text-purple-400 transition-colors">HOST AN EVENT</Link>
+          <Link href="/about" className="hover:text-purple-400 transition-colors">ABOUT</Link>
+          <Link href="/host-an-event" className="hover:text-purple-400 transition-colors">HOST AN EVENT</Link>
           <Link href="#" className="hover:text-purple-400 transition-colors">BLOG</Link>
-          <Link href="#" className="hover:text-purple-400 transition-colors">ARTISTS</Link>
+          <Link href="/artists" className="hover:text-purple-400 transition-colors">ARTISTS</Link>
           <Link href="#" className="hover:text-purple-400 transition-colors">COLLECTION</Link>
         </nav>
 
