@@ -1,184 +1,208 @@
 import { exhibits } from "@/data/exhibits";
 import SafeImage from "@/components/SafeImage";
+import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="flex flex-col items-center w-full">
-      
+    <div className="flex flex-col items-center w-full bg-black">
+
       {/* Hero Section */}
-      <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden bg-black">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <SafeImage
             src="/images/home/hero-museum.jpg"
             alt="Museum of Other Realities"
-            className="w-full h-full object-cover opacity-50"
+            className="w-full h-full object-cover opacity-40"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40"></div>
         </div>
 
-        {/* Background Gradients */}
-        <div className="absolute inset-0 z-0 opacity-40">
-           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-900/40 rounded-full blur-[120px] animate-pulse"></div>
-           <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-900/30 rounded-full blur-[100px]"></div>
-        </div>
+        <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
+          {/* Stacked Logo */}
+          <div className="mb-8">
+            <div className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight">MOR</div>
+            <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-tight">
+              Museum of<br />Other Realities
+            </h1>
+          </div>
 
-        <div className="relative z-10 text-center px-6 max-w-5xl mx-auto mt-10">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">
-            <span className="block text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-gray-500">MUSEUM OF</span>
-            <span className="block text-white">OTHER REALITIES</span>
-          </h1>
-          <p className="text-xl md:text-3xl text-gray-300 font-light max-w-3xl mx-auto mb-12 leading-snug">
-            An immersive social art showcase in VR. <br className="hidden md:block" />
-            Connect, share, and experience virtual reality art with others.
+          <p className="text-lg md:text-xl text-gray-300 font-light max-w-2xl mx-auto mb-10">
+            An immersive social art showcase in VR
           </p>
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button className="px-10 py-5 bg-white text-black font-bold text-lg rounded-full hover:bg-purple-500 hover:text-white transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,255,255,0.3)]">
-              DOWNLOAD NOW
-            </button>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link
+              href="/download"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-black font-medium text-sm rounded-sm hover:bg-gray-200 transition-colors"
+            >
+              Download
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+            <a
+              href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-medium text-sm rounded-sm hover:bg-white/10 transition-colors"
+            >
+              View Trailer
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </a>
           </div>
         </div>
       </section>
 
       {/* About / Statement */}
-      <section className="py-32 px-6 container mx-auto text-center border-b border-white/5 bg-zinc-950/50">
-        <h2 className="text-sm font-bold tracking-[0.3em] text-purple-400 mb-8 uppercase">The Museum</h2>
-        <p className="text-2xl md:text-4xl font-light text-gray-200 max-w-5xl mx-auto leading-relaxed">
-          "A community of creators, explorers, and artists, the MOR provides a place to connect, share, and experience new media together with others from all over the world in VR."
+      <section className="py-24 px-6 max-w-4xl mx-auto text-center">
+        <p className="text-xl md:text-2xl text-gray-200 leading-relaxed">
+          A community of creators, explorers, and artists, the MOR provides a place to connect, share, and experience new media together with others from all over the world in VR.
         </p>
-        <p className="mt-8 text-lg text-gray-400 max-w-3xl mx-auto">
+        <p className="mt-8 text-base text-gray-400 max-w-3xl mx-auto">
           The virtual museum is an ongoing, regularly-updated experience. It contains a cross section of the free-ranging experimentation present in the relatively new medium of VR art.
         </p>
       </section>
 
-      {/* Featured Artists Grid */}
-      <section className="py-32 px-6 container mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-16">
-          <h2 className="text-4xl md:text-6xl font-black text-white">FEATURED <br/> ARTISTS</h2>
-          <button className="hidden md:block text-purple-400 hover:text-white transition-colors font-bold tracking-widest uppercase text-sm border-b border-purple-400 pb-1">View Full Collection</button>
-        </div>
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {/* Supporting Artists */}
+      <section className="py-20 px-6 max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-16">Supporting Artists</h2>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-12">
           {exhibits.map((exhibit) => (
-            <div key={exhibit.id} className="group relative aspect-[3/4] overflow-hidden rounded-sm bg-gray-900 cursor-pointer">
-              {/* Image with Color Fallback */}
-              <div className={`absolute inset-0 ${exhibit.color} transition-transform duration-700 group-hover:scale-110`}>
-                <SafeImage 
-                  src={exhibit.imageUrl} 
-                  alt={exhibit.title}
-                  className="w-full h-full object-cover opacity-60 mix-blend-overlay group-hover:opacity-100 group-hover:mix-blend-normal transition-all duration-500"
+            <div key={exhibit.id} className="text-center">
+              <div className="w-32 h-32 mx-auto mb-4 rounded-full overflow-hidden bg-gray-800">
+                <SafeImage
+                  src={exhibit.imageUrl}
+                  alt={exhibit.artist}
+                  className="w-full h-full object-cover"
                 />
               </div>
-              
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent opacity-60 group-hover:opacity-80 transition-opacity"></div>
-              
-              {/* Text Content */}
-              <div className="absolute bottom-0 left-0 p-6 w-full transform translate-y-2 group-hover:translate-y-0 transition-transform duration-300">
-                <h3 className="text-2xl font-bold text-white mb-1">{exhibit.artist}</h3>
-                <p className="text-sm font-medium text-purple-300 uppercase tracking-wider mb-2">{exhibit.title}</p>
-                <div className="h-0 group-hover:h-auto overflow-hidden transition-all duration-300">
-                    <p className="text-xs text-gray-400 mt-2 opacity-0 group-hover:opacity-100 transition-opacity delay-100">{exhibit.description}</p>
-                </div>
-              </div>
+              <h3 className="text-lg font-semibold text-white mb-2">{exhibit.artist}</h3>
+              <p className="text-sm text-gray-400 leading-relaxed">{exhibit.description}</p>
             </div>
           ))}
         </div>
-        
-        <div className="mt-12 text-center md:hidden">
-           <button className="text-purple-400 font-bold tracking-widest uppercase text-sm border-b border-purple-400 pb-1">View Full Collection</button>
+
+        <div className="mt-16 text-center">
+          <Link
+            href="/artists"
+            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm font-medium"
+          >
+            View all artists
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </section>
 
-      {/* Gallery Showcase */}
-      <section className="py-24 px-6 container mx-auto">
-        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
-          <h2 className="text-4xl md:text-5xl font-black text-white">INSIDE THE <br/> MUSEUM</h2>
-          <p className="text-gray-400 max-w-md mt-4 md:mt-0">Experience immersive VR art from creators around the world</p>
-        </div>
+      {/* Gallery */}
+      <section className="py-20 px-6 max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-12">Gallery</h2>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-          <div className="relative aspect-video overflow-hidden rounded-lg group lg:col-span-2 lg:row-span-2 lg:aspect-square">
+          <div className="aspect-video overflow-hidden">
             <SafeImage
               src="/images/home/gallery-terrarium.png"
               alt="Terrarium VR Experience"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="absolute bottom-4 left-4">
-                <p className="text-white font-bold">Terrarium</p>
-                <p className="text-gray-300 text-sm">Immersive garden experience</p>
-              </div>
-            </div>
           </div>
-
-          <div className="relative aspect-video overflow-hidden rounded-lg group">
+          <div className="aspect-video overflow-hidden">
             <SafeImage
               src="/images/home/gallery-bittman-space.jpg"
               alt="Bittman Space"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="absolute bottom-4 left-4">
-                <p className="text-white font-bold">Cosmic Space</p>
-                <p className="text-gray-300 text-sm">by Dani Bittman</p>
-              </div>
-            </div>
           </div>
-
-          <div className="relative aspect-video overflow-hidden rounded-lg group">
+          <div className="aspect-video overflow-hidden">
             <SafeImage
               src="/images/home/gallery-joy.jpg"
               alt="Joy VR Art"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="absolute bottom-4 left-4">
-                <p className="text-white font-bold">Dog Burger</p>
-                <p className="text-gray-300 text-sm">by JOY</p>
-              </div>
-            </div>
           </div>
-
-          <div className="relative aspect-video overflow-hidden rounded-lg group md:col-span-2 lg:col-span-1">
+          <div className="aspect-video overflow-hidden">
             <SafeImage
               src="/images/home/gallery-sutu-show.png"
               alt="Sutu Equinox Show"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="absolute bottom-4 left-4">
-                <p className="text-white font-bold">Equinox Show</p>
-                <p className="text-gray-300 text-sm">by Sutu</p>
-              </div>
-            </div>
           </div>
-
-          <div className="relative aspect-video overflow-hidden rounded-lg group md:col-span-2">
+          <div className="aspect-video overflow-hidden md:col-span-2">
             <SafeImage
               src="/images/home/gallery-community.jpg"
               alt="MOR Community"
-              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-500"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
-              <div className="absolute bottom-4 left-4">
-                <p className="text-white font-bold">Community Gathering</p>
-                <p className="text-gray-300 text-sm">Connect with artists in VR</p>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* Footer CTA */}
-      <section className="w-full py-40 bg-gradient-to-b from-black to-purple-900/20 text-center px-4">
-        <h2 className="text-4xl md:text-6xl font-bold mb-8">Step into the Museum</h2>
-        <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto">
-          Join us in VR to experience these works as they were meant to be seen.
+      {/* Press Quotes */}
+      <section className="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-16">Press</h2>
+
+        <div className="space-y-12">
+          <blockquote className="text-lg md:text-xl text-gray-300 italic">
+            &ldquo;I&apos;ve never found myself saying &apos;wow&apos; as many times as I did looking through each room.&rdquo;
+            <footer className="mt-4 text-sm text-gray-500 not-italic">— UploadVR</footer>
+          </blockquote>
+
+          <blockquote className="text-lg md:text-xl text-gray-300 italic">
+            &ldquo;The Museum of Other Realities is a stunning showcase of what&apos;s possible in VR art.&rdquo;
+            <footer className="mt-4 text-sm text-gray-500 not-italic">— Forbes</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* Download Section */}
+      <section className="py-24 px-6 max-w-4xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">Download</h2>
+        <p className="text-gray-400 mb-12">
+          Available on multiple platforms
         </p>
-        <button className="px-12 py-4 border border-white/30 backdrop-blur-md text-white font-bold text-sm tracking-widest uppercase rounded-full hover:bg-white hover:text-black transition-all">
-          Get it on Steam
-        </button>
+
+        <div className="flex flex-wrap justify-center gap-4">
+          <a
+            href="https://store.steampowered.com/app/613900/Museum_of_Other_Realities/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-sm rounded transition-colors"
+          >
+            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+            </svg>
+            Steam
+          </a>
+          <a
+            href="https://www.oculus.com/experiences/rift/1783232781699492/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-sm rounded transition-colors"
+          >
+            Meta Quest
+          </a>
+          <a
+            href="https://www.viveport.com/apps/5b5f8f8b-c2d5-4b0f-8e5f-3f8e5f8b5f8b"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-sm rounded transition-colors"
+          >
+            Viveport
+          </a>
+        </div>
+
+        <p className="mt-12 text-sm text-gray-500">
+          Requires a VR headset. See our{" "}
+          <Link href="/download" className="text-white hover:underline">
+            download page
+          </Link>{" "}
+          for full requirements.
+        </p>
       </section>
 
     </div>

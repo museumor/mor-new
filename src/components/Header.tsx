@@ -2,21 +2,25 @@ import Link from 'next/link';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full backdrop-blur-md bg-black/80 border-b border-white/10">
-      <div className="container mx-auto px-4 h-20 flex items-center justify-between">
-        <Link href="/" className="text-2xl font-bold tracking-wider text-white hover:opacity-80 transition-opacity">
-          MUSEUM<span className="font-light opacity-70">OR</span>
+    <header className="sticky top-0 z-50 w-full bg-black border-b border-white/10">
+      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+        <Link href="/" className="text-lg font-semibold text-white hover:opacity-80 transition-opacity">
+          MOR
         </Link>
-        
-        <nav className="hidden md:flex gap-8 text-sm font-medium tracking-wide">
-          <Link href="/about" className="hover:text-purple-400 transition-colors">ABOUT</Link>
-          <Link href="/host-an-event" className="hover:text-purple-400 transition-colors">HOST AN EVENT</Link>
-          <Link href="/blog" className="hover:text-purple-400 transition-colors">BLOG</Link>
-          <Link href="/artists" className="hover:text-purple-400 transition-colors">ARTISTS</Link>
-          <Link href="/collection" className="hover:text-purple-400 transition-colors">COLLECTION</Link>
+
+        <nav className="hidden md:flex items-center gap-8 text-sm">
+          <Link href="/about" className="text-white/80 hover:text-white transition-colors">About</Link>
+          <Link href="/host-an-event" className="text-white/80 hover:text-white transition-colors">Host an Event</Link>
+          <Link href="/blog" className="text-white/80 hover:text-white transition-colors">Blog</Link>
+          <Link href="/artists" className="text-white/80 hover:text-white transition-colors">Artists</Link>
+          <Link href="/collection" className="text-white/80 hover:text-white transition-colors">Collection</Link>
+          <Link href="/download" className="text-white/80 hover:text-white transition-colors">Download</Link>
         </nav>
 
-        <Link href="/download" className="px-6 py-2.5 text-xs font-bold bg-white text-black hover:bg-purple-500 hover:text-white transition-colors rounded-full uppercase tracking-widest">
+        <Link
+          href="/download"
+          className="md:hidden inline-flex items-center gap-2 px-4 py-2 bg-white text-black text-sm font-medium rounded-sm hover:bg-gray-200 transition-colors"
+        >
           Download
         </Link>
       </div>
