@@ -19,3 +19,31 @@ body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
 }
+
+/* Blog content iframe styling for YouTube embeds */
+.blog-content iframe {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16 / 9;
+  margin: 2rem auto;
+  border-radius: 0.75rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: #18181b;
+}
+
+/* Center the parent div that wraps iframes */
+.blog-content div:has(> iframe) {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+/* Blog content images - make them responsive and centered */
+.blog-content img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 1.5rem auto;
+  border-radius: 0.5rem;
+}
