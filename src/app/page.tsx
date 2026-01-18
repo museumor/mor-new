@@ -7,13 +7,22 @@ export default function Home() {
       
       {/* Hero Section */}
       <section className="relative w-full min-h-[90vh] flex items-center justify-center overflow-hidden bg-black">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <SafeImage
+            src="/images/home/hero-museum.jpg"
+            alt="Museum of Other Realities"
+            className="w-full h-full object-cover opacity-50"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-transparent"></div>
+        </div>
+
         {/* Background Gradients */}
         <div className="absolute inset-0 z-0 opacity-40">
            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-purple-900/40 rounded-full blur-[120px] animate-pulse"></div>
            <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-blue-900/30 rounded-full blur-[100px]"></div>
-           <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-indigo-900/30 rounded-full blur-[100px]"></div>
         </div>
-        
+
         <div className="relative z-10 text-center px-6 max-w-5xl mx-auto mt-10">
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black tracking-tighter mb-8 leading-[0.9]">
             <span className="block text-transparent bg-clip-text bg-gradient-to-br from-white via-white to-gray-500">MUSEUM OF</span>
@@ -78,6 +87,86 @@ export default function Home() {
         
         <div className="mt-12 text-center md:hidden">
            <button className="text-purple-400 font-bold tracking-widest uppercase text-sm border-b border-purple-400 pb-1">View Full Collection</button>
+        </div>
+      </section>
+
+      {/* Gallery Showcase */}
+      <section className="py-24 px-6 container mx-auto">
+        <div className="flex flex-col md:flex-row justify-between items-end mb-12">
+          <h2 className="text-4xl md:text-5xl font-black text-white">INSIDE THE <br/> MUSEUM</h2>
+          <p className="text-gray-400 max-w-md mt-4 md:mt-0">Experience immersive VR art from creators around the world</p>
+        </div>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="relative aspect-video overflow-hidden rounded-lg group lg:col-span-2 lg:row-span-2 lg:aspect-square">
+            <SafeImage
+              src="/images/home/gallery-terrarium.png"
+              alt="Terrarium VR Experience"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-4 left-4">
+                <p className="text-white font-bold">Terrarium</p>
+                <p className="text-gray-300 text-sm">Immersive garden experience</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative aspect-video overflow-hidden rounded-lg group">
+            <SafeImage
+              src="/images/home/gallery-bittman-space.jpg"
+              alt="Bittman Space"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-4 left-4">
+                <p className="text-white font-bold">Cosmic Space</p>
+                <p className="text-gray-300 text-sm">by Dani Bittman</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative aspect-video overflow-hidden rounded-lg group">
+            <SafeImage
+              src="/images/home/gallery-joy.jpg"
+              alt="Joy VR Art"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-4 left-4">
+                <p className="text-white font-bold">Dog Burger</p>
+                <p className="text-gray-300 text-sm">by JOY</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative aspect-video overflow-hidden rounded-lg group md:col-span-2 lg:col-span-1">
+            <SafeImage
+              src="/images/home/gallery-sutu-show.png"
+              alt="Sutu Equinox Show"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-4 left-4">
+                <p className="text-white font-bold">Equinox Show</p>
+                <p className="text-gray-300 text-sm">by Sutu</p>
+              </div>
+            </div>
+          </div>
+
+          <div className="relative aspect-video overflow-hidden rounded-lg group md:col-span-2">
+            <SafeImage
+              src="/images/home/gallery-community.jpg"
+              alt="MOR Community"
+              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity">
+              <div className="absolute bottom-4 left-4">
+                <p className="text-white font-bold">Community Gathering</p>
+                <p className="text-gray-300 text-sm">Connect with artists in VR</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
