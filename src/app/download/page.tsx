@@ -7,7 +7,7 @@ export default function DownloadPage() {
   useEffect(() => {
     // Optional: Auto-redirect after a few seconds
     const timer = setTimeout(() => {
-       window.location.href = "https://store.steampowered.com/app/1053010/Museum_of_Other_Realities/";
+       window.location.href = "https://store.steampowered.com/app/613900/Museum_of_Other_Realities/";
     }, 3000);
     return () => clearTimeout(timer);
   }, []);
@@ -21,7 +21,7 @@ export default function DownloadPage() {
       
       <div className="flex flex-col gap-4">
         <a 
-          href="https://store.steampowered.com/app/1053010/Museum_of_Other_Realities/"
+          href="https://store.steampowered.com/app/613900/Museum_of_Other_Realities/"
           className="px-8 py-4 bg-[#66c0f4] text-black font-bold text-lg rounded hover:bg-white transition-colors flex items-center justify-center gap-3"
         >
           <span>Continue to Steam</span>
