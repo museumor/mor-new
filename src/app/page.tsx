@@ -1,4 +1,5 @@
 import { exhibits } from "@/data/exhibits";
+import { blogPosts } from "@/data/blog";
 import SafeImage from "@/components/SafeImage";
 import Link from "next/link";
 
@@ -144,7 +145,8 @@ export default function Home() {
 
       {/* Press Quotes */}
       <section className="py-20 px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-16">Press</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">Press</h2>
+        <p className="text-gray-400 mb-12">What visitors are saying...</p>
 
         <div className="space-y-12">
           <blockquote className="text-lg md:text-xl text-gray-300 italic">
@@ -153,56 +155,111 @@ export default function Home() {
           </blockquote>
 
           <blockquote className="text-lg md:text-xl text-gray-300 italic">
-            &ldquo;The Museum of Other Realities is a stunning showcase of what&apos;s possible in VR art.&rdquo;
+            &ldquo;It&apos;s an experience, not a game or demo.&rdquo;
             <footer className="mt-4 text-sm text-gray-500 not-italic">— Forbes</footer>
           </blockquote>
+
+          <blockquote className="text-lg md:text-xl text-gray-300 italic">
+            &ldquo;Multi-dimensional madness and portals.&rdquo;
+            <footer className="mt-4 text-sm text-gray-500 not-italic">— Rock, Paper, Shotgun</footer>
+          </blockquote>
+        </div>
+      </section>
+
+      {/* Worked With */}
+      <section className="py-20 px-6 max-w-5xl mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-4">A Few Brands We&apos;ve Worked With</h2>
+        <p className="text-gray-400 mb-12">Breaking new ground</p>
+
+        <div className="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+          <SafeImage
+            src="/images/logo/CANNES_XR_LOGO_2019.png"
+            alt="Cannes XR"
+            className="h-10 md:h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+          />
+          <SafeImage
+            src="/images/logo/Tribeca Logo.png"
+            alt="Tribeca"
+            className="h-10 md:h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+          />
+          <SafeImage
+            src="/images/logo/Verizon_Media_2019_logo white.png"
+            alt="Verizon Media"
+            className="h-8 md:h-10 w-auto opacity-70 hover:opacity-100 transition-opacity"
+          />
+          <SafeImage
+            src="/images/logo/FDI_NewImages-Festival-white.png"
+            alt="FDI New Images Festival"
+            className="h-10 md:h-12 w-auto opacity-70 hover:opacity-100 transition-opacity"
+          />
+          <SafeImage
+            src="/images/logo/Kaleidoscope_logo.png"
+            alt="Kaleidoscope"
+            className="h-8 md:h-10 w-auto opacity-70 hover:opacity-100 transition-opacity"
+          />
+          <SafeImage
+            src="/images/logo/VIFF_Logo_WEB.png"
+            alt="VIFF"
+            className="h-8 md:h-10 w-auto opacity-70 hover:opacity-100 transition-opacity invert"
+          />
         </div>
       </section>
 
       {/* Download Section */}
       <section className="py-24 px-6 max-w-4xl mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">Download</h2>
+        <h2 className="text-2xl md:text-3xl font-semibold text-white mb-6">Download Now</h2>
         <p className="text-gray-400 mb-12">
-          Available on multiple platforms
+          Available on Steam
         </p>
 
-        <div className="flex flex-wrap justify-center gap-4">
-          <a
-            href="https://store.steampowered.com/app/613900/Museum_of_Other_Realities/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-sm rounded transition-colors"
-          >
-            <svg className="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-            </svg>
-            Steam
-          </a>
-          <a
-            href="https://www.oculus.com/experiences/rift/1783232781699492/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-sm rounded transition-colors"
-          >
-            Meta Quest
-          </a>
-          <a
-            href="https://www.viveport.com/apps/5b5f8f8b-c2d5-4b0f-8e5f-3f8e5f8b5f8b"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 bg-white/10 hover:bg-white/20 text-white text-sm rounded transition-colors"
-          >
-            Viveport
-          </a>
+        <a
+          href="https://store.steampowered.com/app/613900/Museum_of_Other_Realities/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-block hover:opacity-80 transition-opacity"
+        >
+          <SafeImage
+            src="/images/logo/Steam White Logo.svg"
+            alt="Available on Steam"
+            className="h-12 w-auto mx-auto"
+          />
+        </a>
+      </section>
+
+      {/* Blog Section */}
+      <section className="py-20 px-6 max-w-6xl mx-auto">
+        <h2 className="text-2xl md:text-3xl font-semibold text-white text-center mb-4">From the Blog</h2>
+        <p className="text-gray-400 text-center mb-12">Our articles</p>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {blogPosts.slice(0, 3).map((post) => (
+            <Link key={post.slug} href={post.link} className="group">
+              <div className="aspect-video overflow-hidden mb-4 bg-gray-800">
+                <SafeImage
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+              <p className="text-xs text-gray-500 mb-2">{post.date}</p>
+              <h3 className="text-lg font-medium text-white group-hover:text-gray-300 transition-colors leading-snug">
+                {post.title}
+              </h3>
+            </Link>
+          ))}
         </div>
 
-        <p className="mt-12 text-sm text-gray-500">
-          Requires a VR headset. See our{" "}
-          <Link href="/download" className="text-white hover:underline">
-            download page
-          </Link>{" "}
-          for full requirements.
-        </p>
+        <div className="mt-12 text-center">
+          <Link
+            href="/blog"
+            className="inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors text-sm font-medium"
+          >
+            View all articles
+            <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
+        </div>
       </section>
 
     </div>
