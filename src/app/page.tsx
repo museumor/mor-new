@@ -12,9 +12,9 @@ export default function Home() {
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <SafeImage
-            src="/images/home/hero-museum.jpg"
+            src="/images/home/Hero-NightSnow.jpg"
             alt="Museum of Other Realities"
-            className="w-full h-full object-cover opacity-40"
+            className="w-full h-full object-cover opacity-60"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-black/40"></div>
         </div>

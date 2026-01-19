@@ -3,7 +3,7 @@ import SafeImage from './SafeImage';
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-black border-b border-white/10">
+    <header className="sticky top-0 z-50 w-full bg-transparent hover:bg-black transition-colors duration-300 border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
         <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
           <SafeImage 
