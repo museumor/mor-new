@@ -43,7 +43,7 @@ export default function Home() {
               </svg>
             </Link>
             <a
-              href="https://www.youtube.com/watch?v=YOUR_VIDEO_ID"
+              href="https://www.youtube.com/watch?v=zUtqvp1LIcM"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-2 px-8 py-4 border border-white/30 text-white font-medium text-sm rounded-sm hover:bg-white/10 transition-colors"
