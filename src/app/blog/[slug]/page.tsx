@@ -2,6 +2,7 @@ import { blogContent } from "@/data/blog_content";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import SafeImage from "@/components/SafeImage";
+import DOMPurify from "isomorphic-dompurify";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -37,7 +38,7 @@ export default async function BlogPostPage({ params }: PageProps) {
 
         <article className="prose prose-invert prose-purple max-w-none prose-lg">
           <div 
-            dangerouslySetInnerHTML={{ __html: post.content }} 
+            dangerouslySetInnerHTML={{ __html: DOMPurify.sanitize(post.content) }} 
             className="blog-content text-gray-300 leading-relaxed"
           />
         </article>
