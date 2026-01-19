@@ -1,11 +1,16 @@
 import Link from 'next/link';
+import SafeImage from './SafeImage';
 
 export default function Header() {
   return (
     <header className="sticky top-0 z-50 w-full bg-black border-b border-white/10">
       <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-        <Link href="/" className="text-lg font-semibold text-white hover:opacity-80 transition-opacity">
-          MOR
+        <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
+          <SafeImage 
+            src="/images/logo/MOR_Logomark-forweb_white.png" 
+            alt="Museum of Other Realities" 
+            className="h-8 w-auto"
+          />
         </Link>
 
         <nav className="hidden md:flex items-center gap-8 text-sm">
