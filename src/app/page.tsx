@@ -22,7 +22,6 @@ export default function Home() {
         <div className="relative z-10 text-center px-6 max-w-4xl mx-auto">
           {/* Stacked Logo */}
           <div className="mb-8">
-            <div className="text-6xl md:text-7xl font-bold text-white mb-4 tracking-tight">MOR</div>
             <h1 className="text-3xl md:text-4xl lg:text-5xl font-light tracking-tight text-white leading-tight">
               Museum of<br />Other Realities
             </h1>
