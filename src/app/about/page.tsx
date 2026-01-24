@@ -39,6 +39,7 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        </section>
         <section id="press" className="mt-24 pt-12 border-t border-white/10">
           <div className="flex flex-col md:flex-row gap-12 items-start">
             <div className="flex-1">
