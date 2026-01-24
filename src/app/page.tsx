@@ -8,7 +8,7 @@ export default function Home() {
     <div className="flex flex-col items-center w-full bg-black">
 
       {/* Hero Section */}
-      <section className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden bg-black">
+      <section className="relative w-full min-h-[80vh] flex items-center justify-center overflow-hidden bg-black -mt-16">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <SafeImage

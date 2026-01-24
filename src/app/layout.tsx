@@ -38,7 +38,7 @@ export default function RootLayout({
         className={`${workSans.variable} ${dmSans.variable} antialiased min-h-screen flex flex-col`}
       >
         <Header />
-        <main className="flex-grow">
+        <main className="flex-grow pt-16">
           {children}
         </main>
         <Footer />

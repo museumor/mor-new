@@ -1,10 +1,27 @@
+'use client';
+
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import SafeImage from './SafeImage';
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
   return (
-    <header className="sticky top-0 z-50 w-full bg-transparent hover:bg-black transition-colors duration-300 border-b border-white/10">
-      <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
+    <header 
+      className={`fixed top-0 z-50 w-full transition-all duration-300 border-b border-white/10 ${
+        isScrolled ? 'bg-black/90 backdrop-blur-md py-2' : 'bg-transparent py-4'
+      } hover:bg-black group`}
+    >
+      <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center hover:opacity-80 transition-opacity">
           <SafeImage 
             src="/images/logo/MOR_Logomark-forweb_white.png" 
