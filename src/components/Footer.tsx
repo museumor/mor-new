@@ -24,6 +24,7 @@ export default function Footer() {
           <div>
             <h3 className="text-sm font-semibold text-white mb-4">Connect</h3>
             <ul className="space-y-2 text-sm text-gray-400">
+              <li><a href="mailto:editor@museumor.com" className="hover:text-white transition-colors">Contact</a></li>
               <li><a href="https://x.com/MuseumOR" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">X</a></li>
               <li><a href="https://www.instagram.com/museumofotherrealities/" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Instagram</a></li>
               <li><a href="https://discord.com/invite/Xmr2wXR" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Discord</a></li>

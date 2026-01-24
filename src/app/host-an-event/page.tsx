@@ -7,7 +7,7 @@ export default function HostEventPage() {
         <section className="mb-16">
           <p className="text-xl leading-relaxed mb-6">
             The Museum of Other Realities is the perfect venue for your next virtual event. 
-            Whether it's an exhibition opening, a festival, or a private gathering, we offer a unique, immersive space that defies the laws of physics.
+            Whether it&apos;s an exhibition opening, a festival, or a private gathering, we offer a unique, immersive space that defies the laws of physics.
           </p>
         </section>
 
@@ -23,10 +23,13 @@ export default function HostEventPage() {
           </div>
           <div className="bg-zinc-900 p-8 rounded-xl border border-white/10">
             <h3 className="text-xl font-bold text-white mb-6">Get in Touch</h3>
-            <p className="mb-6 text-sm text-gray-400">Fill out our event request form or email us directly.</p>
-            <button className="w-full py-3 bg-white text-black font-bold uppercase tracking-widest rounded hover:bg-purple-500 hover:text-white transition-colors">
+            <p className="mb-6 text-sm text-gray-400">Email us to discuss your event requirements.</p>
+            <a 
+              href="mailto:editor@museumor.com"
+              className="block w-full py-3 bg-white text-black text-center font-bold uppercase tracking-widest rounded hover:bg-purple-500 hover:text-white transition-colors"
+            >
               Contact Us
-            </button>
+            </a>
           </div>
         </section>
       </div>

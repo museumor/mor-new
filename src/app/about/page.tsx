@@ -40,6 +40,19 @@ export default function AboutPage() {
             ))}
           </div>
         </section>
+
+        <section className="mt-20 pt-12 border-t border-white/10 text-center">
+          <h2 className="text-3xl font-bold mb-4 text-white">Contact Us</h2>
+          <p className="text-xl text-gray-400 mb-8">
+            Have questions or want to get in touch? We&apos;d love to hear from you.
+          </p>
+          <a 
+            href="mailto:editor@museumor.com" 
+            className="inline-block bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-purple-400 hover:text-white transition-all duration-300"
+          >
+            Email editor@museumor.com
+          </a>
+        </section>
       </div>
     </div>
   );

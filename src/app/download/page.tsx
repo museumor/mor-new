@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect } from 'react';
+import Link from 'next/link';
 
 export default function DownloadPage() {
   
@@ -27,9 +28,9 @@ export default function DownloadPage() {
           <span>Continue to Steam</span>
         </a>
         
-        <a href="/" className="text-sm text-gray-500 hover:text-white mt-4 underline">
+        <Link href="/" className="text-sm text-gray-500 hover:text-white mt-4 underline">
           Return to Homepage
-        </a>
+        </Link>
       </div>
     </div>
   );
