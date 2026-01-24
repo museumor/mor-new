@@ -39,6 +39,35 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        <section id="press" className="mt-24 pt-12 border-t border-white/10">
+          <div className="flex flex-col md:flex-row gap-12 items-start">
+            <div className="flex-1">
+              <h2 className="text-sm font-bold tracking-widest text-purple-400 uppercase mb-4">Background</h2>
+              <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">What is the MOR?</h3>
+              <p className="text-xl text-gray-300 leading-relaxed mb-8">
+                An immersive multiplayer art showcase in VR, the Museum of Other Realities (MOR) is a place to connect, share, and experience virtual reality art with others.
+              </p>
+              <a 
+                href="https://drive.google.com/open?id=1AcVt4Xn9R2gsn9hGl8kr51OqNG-zowqh" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-3 px-6 py-3 bg-zinc-900 border border-white/20 text-white font-bold rounded hover:bg-white hover:text-black transition-all duration-300"
+              >
+                View Press kit
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                </svg>
+              </a>
+            </div>
+            <div className="flex-1 text-gray-400 space-y-6">
+              <p>
+                The museum contains a cross section of free-ranging, interactive, experimentation present in the relatively new medium of VR art, supporting artists who are challenging and redefining what is possible.
+              </p>
+              <p>
+                VR is still in its infancy as a creative tool and yet artists are already breaking new ground and creating amazing work with it. The same ‘newness’ that gives artists the opportunity to experiment, however, also means that it can be difficult for them to get their work seen by a wider audience as intended. The MOR was created as a way to address this.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section className="mt-20 pt-12 border-t border-white/10 text-center">
