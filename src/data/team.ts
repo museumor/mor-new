@@ -11,7 +11,7 @@ export const team: TeamMember[] = [
   { name: "Lindsay Jorgensen", role: "Technical Artist", image: "/images/team/lindsay-jorgensen.jpg" },
   { name: "Adam Madojemu", role: "Brand Manager", image: "/images/team/adam-madojemu.jpg" },
   { name: "Adiba Muzaffar", role: "Content Strategist", image: "/images/team/adiba-muzaffar.jpg" },
-  { name: "Em Halberstadt", role: "Sound Designer", image: "/images/team/em-halberstadt.jpg" },
+  { name: "Em Halberstadt", role: "Sound Designer", image: "/images/team/em-halberstadt.png" },
   { name: "Nicholas Zhang", role: "Audio Programmer", image: "/images/team/nicholas-zhang.jpg" },
-  { name: "Maris Tammik", role: "Audio Programmer", image: "/images/team/maris-tammik.jpg" },
+  { name: "Maris Tammik", role: "Audio Programmer", image: "/images/team/maris-tammik.png" },
 ];
