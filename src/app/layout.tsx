@@ -19,6 +19,9 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: "Museum of Other Realities",
   description: "An immersive multiplayer art showcase in VR.",
+  icons: {
+    icon: "/favicon.png",
+  },
 };
 
 export default function RootLayout({
