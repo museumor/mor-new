@@ -12,7 +12,7 @@ from urllib.parse import unquote
 # Paths
 public_img_dir = 'public/images/blog/content'
 blog_content_ts_path = 'src/data/blog_content.ts'
-base_path = '/mor-new'
+base_path = ''
 
 def sanitize_filename(filename):
     """Remove hash prefix and special characters from filename."""
@@ -125,8 +125,8 @@ def main():
     content = re.sub(r'src="(/images/blog/content/[^"]+)"', replace_src, content)
 
     # Also fix any references that might have a different pattern
-    # Match src="/images/blog/content/..." with already having mor-new
-    content = re.sub(r'src="/mor-new/mor-new/', 'src="/mor-new/', content)
+    # Match src="/mor-new/..." and remove the prefix
+    content = re.sub(r'src="/mor-new/', 'src="/', content)
 
     if content != original_content:
         with open(blog_content_ts_path, 'w', encoding='utf-8') as f:

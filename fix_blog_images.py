@@ -121,8 +121,9 @@ def process_blog_content():
                         # We need to make sure we don't double-prefix if the component does it.
                         # But for HTML content injected via dangerouslySetInnerHTML, SafeImage isn't used!
                         # We must include the base path manually here if we are deploying to a subdirectory.
-                        # BASE_PATH is /mor-new
-                        return f'src="/mor-new{local_url}"'
+                            # BASE_PATH is "" (root)
+                            return f'src="{local_url}"'
+                        
                 return match.group(0)
 
             # Regex for src="URL"
@@ -131,10 +132,18 @@ def process_blog_content():
             body = re.sub(r'src="([^"]+)"', replace_match, body)
             
             # Also clean up museumor.com links
-            body = re.sub(r'https?://(www\.)?museumor\.com/', '/mor-new/', body)
+            body = re.sub(r'https?://(www\.)?museumor\.com/', '/', body)
             
             # Get main image path
-            main_image = f"/mor-new/images/blog/{slug}.jpg" 
+    if main_image.startswith("http"):
+        pass # Keep external links
+    elif not main_image.startswith("/"):
+        main_image = f"/images/blog/{slug}.jpg"
+    else:
+        # It's already a relative path, ensure it doesn't have /mor-new if we don't want it?
+        # But here we are constructing it usually.
+        main_image = f"/images/blog/{slug}.jpg"
+ 
             
             blog_content_map[slug] = {
                 'title': title,

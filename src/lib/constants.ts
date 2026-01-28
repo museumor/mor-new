@@ -1,1 +1,1 @@
-export const BASE_PATH = "/mor-new";
+export const BASE_PATH = "";
