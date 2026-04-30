@@ -34,6 +34,7 @@ export default function Footer() {
               <li><Link href="/about" className="transition-colors hover:text-white">About MOR</Link></li>
               <li><Link href="/host-an-event" className="transition-colors hover:text-white">Host an Event</Link></li>
               <li><Link href="/download" className="transition-colors hover:text-white">Download Page</Link></li>
+              <li><Link href="/support" className="transition-colors hover:text-white">Support MOR</Link></li>
               <li><Link href="/blog/the-museum-of-other-realities-is-free-to-visit" className="transition-colors hover:text-white">Open Access Story</Link></li>
             </ul>
           </div>
@@ -44,6 +45,7 @@ export default function Footer() {
               <li><a href="https://x.com/MuseumOR" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">X</a></li>
               <li><a href="https://www.instagram.com/museumofotherrealities/" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">Instagram</a></li>
               <li><a href="https://discord.com/invite/Xmr2wXR" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">Discord</a></li>
+              <li><a href="https://www.patreon.com/museumofotherrealities" target="_blank" rel="noopener noreferrer" className="transition-colors hover:text-white">Support on Patreon</a></li>
             </ul>
           </div>
         </div>

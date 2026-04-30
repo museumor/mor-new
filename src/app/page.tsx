@@ -376,6 +376,43 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="mx-auto max-w-7xl px-6 py-10">
+        <div className="grid overflow-hidden rounded-[2rem] border border-white/10 bg-white/[0.03] md:grid-cols-[1.05fr_0.95fr]">
+          <div className="relative min-h-[22rem] overflow-hidden">
+            <SafeImage
+              src="/images/home/gallery-community.jpg"
+              alt="Visitors inside the Museum of Other Realities"
+              className="h-full w-full object-cover opacity-82"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-black/12 via-transparent to-black/70 md:bg-gradient-to-r" />
+          </div>
+          <div className="flex flex-col justify-center p-8 md:p-10">
+            <p className="text-xs uppercase tracking-[0.3em] text-white/45">Keep MOR Free</p>
+            <h2 className="mt-4 text-3xl font-medium leading-tight text-white md:text-4xl">
+              Patrons fund access for everyone.
+            </h2>
+            <p className="mt-5 text-sm leading-7 text-white/70">
+              Patreon helps cover the fixed costs behind an open museum: multiplayer servers, Unity updates, Steam hosting,
+              archiving, and the care needed to keep VR art available without a ticket at the door.
+            </p>
+            <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+              <Link
+                href="/support"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-white px-6 text-sm font-medium text-black transition-transform hover:-translate-y-0.5 hover:bg-white/90"
+              >
+                Become a Patron
+              </Link>
+              <Link
+                href="/blog/the-museum-of-other-realities-is-free-to-visit"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-white/15 bg-black/20 px-6 text-sm font-medium text-white transition-colors hover:border-white/30 hover:bg-white/5"
+              >
+                Read the Open Access Story
+              </Link>
+            </div>
+          </div>
+        </div>
+      </section>
+
       <section className="mx-auto max-w-6xl px-6 py-20 text-center">
         <p className="text-xs uppercase tracking-[0.3em] text-white/45">Collaborators</p>
         <h2 className="mt-4 text-3xl font-medium text-white">Festival and cultural partners</h2>
