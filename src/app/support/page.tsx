@@ -13,8 +13,6 @@ const fundingUses = [
 
 const patronCommunity = [
   "Behind-the-scenes notes from the museum",
-  "Early previews of rooms and experiments in progress",
-  "Monthly artist talks and community gatherings",
   "A small signal group helping shape what stays alive",
 ];
 
@@ -87,8 +85,8 @@ export default function SupportPage() {
           <p className="text-xs uppercase tracking-[0.3em] text-white/45">Core Community</p>
           <h2 className="mt-4 text-3xl font-medium text-white">A signal group, not a customer base</h2>
           <p className="mt-5 text-sm leading-7 text-white/68">
-            Patreon is for the people who want to stay close to the process: the small community that reads field notes,
-            joins artist conversations, and helps MOR remain alive between public releases.
+            Patreon is for those who wish to support the museum: the small community that reads field notes and helps
+            MOR remain alive between public releases.
           </p>
           <ul className="mt-8 space-y-4 text-sm leading-7 text-white/76">
             {patronCommunity.map((item) => (
